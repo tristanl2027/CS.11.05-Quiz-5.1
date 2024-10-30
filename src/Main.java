@@ -9,8 +9,20 @@ public class Main {
      */
     public static int[] combine(int[] array1, int[] array2) {
 
-        return null;
+        int[] zip = new int [array1.length + array2.length];
 
+        for (int i=0; i<array1.length; i++){
+            zip[i] = array1[i];
+        }
+
+
+        for (int x=0; x<array2.length; x++){
+            zip[array1.length + x] = array2[x];
+        }
+
+        for (int i: zip) System.out.print(i + " ");
+        System.out.println();
+        return zip;
     }
 
     /**
@@ -21,9 +33,12 @@ public class Main {
      * zip(myArray1, myArray2) → {1,2,3,4,5,6,7,8,9,10}
      */
     public static int[] zip(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] zip = new int[array1.length + array2.length];
+        for(int i = 0; i < array1.length; i++) {
+            zip[i*2] = array1[i];
+            zip[i*2 + 1] = array2[i];
+        }
+        return zip;
     }
 
     /**
@@ -34,9 +49,11 @@ public class Main {
      * product(myArray1, myArray2) → {2,12,30,56,90}
      */
     public static int[] product(int[] array1, int[] array2) {
-
-        return null;
-
+        int[] product = new int[array1.length];
+        for(int i = 0; i < array1.length; i++) {
+            product[i] =array1[i]*array2[i];
+        }
+        return product;
     }
 
     /**
@@ -56,15 +73,21 @@ public class Main {
      * capitalCount(words) → {1, 2, 2, 0}
      */
     public static int[] capitalCount(String[] words) {
-
-        return null;
-
+        int[] capitalCounts = new int[words.length];
+        for(int i = 0; i < words.length; i++) {
+            capitalCounts[i] = countCapitalLetters(words[i]);
+        }
+        return capitalCounts;
     }
 
     public static int countCapitalLetters(String word) {
-
-        return 0;
-
+        int count = 0;
+        for(int i = 0; i < word.length(); i++) {
+            if(Character.isUpperCase(word.charAt(i))) {
+                count++;
+            }
+        }
+        return count;
     }
 
 }
